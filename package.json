@@ -1,0 +1,90 @@
+{
+  "name": "nuxt-yandex-metrika-runtime",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Модуль Яндекс Метрики для Nuxt 4: SSR и управление счётчиком без перезагрузки",
+  "license": "MIT",
+  "author": "Valentin Alekhin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValentinAlekhin/nuxt-yandex-metrika-runtime.git"
+  },
+  "homepage": "https://github.com/ValentinAlekhin/nuxt-yandex-metrika-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/ValentinAlekhin/nuxt-yandex-metrika-runtime/issues"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "nuxt4",
+    "yandex-metrika",
+    "metrika",
+    "analytics",
+    "ssr"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "./dist/module.mjs",
+  "types": "./dist/types.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prebuild": "nuxt-module-build prepare",
+    "build": "nuxt-module-build build",
+    "prepack": "npm run build",
+    "dev:prepare": "nuxt-module-build prepare && nuxt prepare tests/fixtures/basic",
+    "typecheck": "npm run dev:prepare && vue-tsc --noEmit && nuxt typecheck tests/fixtures/basic",
+    "test": "npm run build && vitest run",
+    "test:unit": "vitest run --project unit",
+    "test:nuxt": "vitest run --project nuxt",
+    "test:e2e": "npm run build && vitest run --project e2e",
+    "test:install-browser": "playwright-core install chromium",
+    "lint": "oxlint --deny-warnings .",
+    "lint:fix": "oxlint --fix --deny-warnings .",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "hooks:install": "git config core.hooksPath .githooks",
+    "release:ci": "release-it --config .release-it.ci.json --ci --no-increment --no-git"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^4.6.2",
+    "defu": "^6.1.7",
+    "zod": "4.6.7"
+  },
+  "peerDependencies": {
+    "nuxt": "^4.0.0",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
+    "@nuxt/module-builder": "1.0.4",
+    "@nuxt/test-utils": "4.4.0",
+    "@types/node": "^24.19.2",
+    "@vue/test-utils": "2.5.1",
+    "happy-dom": "21.0.4",
+    "nuxt": "4.6.2",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "playwright-core": "1.65.0",
+    "release-it": "21.1.2",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12",
+    "vue": "3.5.44",
+    "vue-tsc": "3.3.13"
+  },
+  "engines": {
+    "node": ">=24.22.1"
+  }
+}

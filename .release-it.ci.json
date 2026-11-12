@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/release-it@21/schema/release-it.json",
+  "npm": {
+    "skipChecks": true,
+    "publishPath": "./artifacts/package.tgz",
+    "publishArgs": ["--ignore-scripts", "--access", "public", "--provenance"]
+  },
+  "github": {
+    "release": true,
+    "releaseName": "Версия ${version}",
+    "update": true
+  }
+}

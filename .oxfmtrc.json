@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "semi": false,
+  "trailingComma": "none",
+  "printWidth": 100,
+  "endOfLine": "lf",
+  "sortImports": false,
+  "sortTailwindcss": false,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "node_modules/**",
+    "**/.nuxt*/**",
+    "**/.output/**",
+    "dist/**",
+    "coverage/**",
+    "package-lock.json"
+  ]
+}
